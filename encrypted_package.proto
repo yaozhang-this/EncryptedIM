@@ -1,0 +1,26 @@
+/**
+Google Protocol Buffer for EncryptedIM
+
+compile this with:
+protoc -I=. --python_out=. ./encrypted_package.proto
+ */
+
+syntax = "proto2";
+
+package demo;
+
+message EncryptedPackage {
+	required bytes iv = 20;
+	required bytes encryptedMessage = 30;
+}
+
+message PlaintextAndMAC {
+	required bytes paddedPlaintext = 10;
+	required bytes mac = 20;
+}
+
+message IM {
+	required string nickname = 5;
+	required string message = 10;
+}
+
